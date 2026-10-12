@@ -36,6 +36,10 @@ addButton.addEventListener("click", function () {
          saveButton.textContent = "Save";
          taskToComplete.appendChild(saveButton);
          saveButton.addEventListener("click", function(event) {
+            if(editInput.value.trim() === "")
+            {
+               return;
+            }
            taskText.textContent = editInput.value;
               editInput.remove();
               saveButton.remove();
@@ -51,3 +55,11 @@ addButton.addEventListener("click", function () {
        taskInput.value = "";
 });
 
+
+taskInput.addEventListener("keydown",function(event)
+{
+   if(event.key === "Enter")
+   {
+      addButton.click();
+   }
+});
