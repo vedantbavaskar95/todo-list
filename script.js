@@ -28,6 +28,10 @@ addButton.addEventListener("click", function () {
        editButton.addEventListener("click",function(event)
       {
          event.stopPropagation();
+         const existingInput = taskToComplete.querySelector("input"); 
+         if (existingInput) {
+                              return;
+                            }
          const editInput = document.createElement("input");
          editInput.value = taskText.textContent;
          taskToComplete.appendChild(editInput);
