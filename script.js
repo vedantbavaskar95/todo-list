@@ -35,19 +35,40 @@ addButton.addEventListener("click", function () {
          const editInput = document.createElement("input");
          editInput.value = taskText.textContent;
          taskToComplete.appendChild(editInput);
-
+         editInput.addEventListener("keydown", function(event) {
+        if(event.key === "Enter")
+        {
+         saveButton.click();
+        }
+});
+         
          const saveButton = document.createElement("button");
          saveButton.textContent = "Save";
          taskToComplete.appendChild(saveButton);
+         
+                  const cancelButton = document.createElement("button");
+                  cancelButton.textContent = "Cancel";
+                  taskToComplete.appendChild(cancelButton);
          saveButton.addEventListener("click", function(event) {
             if(editInput.value.trim() === "")
             {
                return;
             }
-           taskText.textContent = editInput.value;
-              editInput.remove();
-              saveButton.remove();
-});
+         
+
+            
+            taskText.textContent = editInput.value;
+            editInput.remove();
+            saveButton.remove();
+            cancelButton.remove();
+         });
+                  cancelButton.addEventListener("click",function(event){
+                     event.stopPropagation();
+                     editInput.remove();
+                     saveButton.remove();
+                     cancelButton.remove();
+         
+                  })
       })
        
     taskToComplete.addEventListener("click", function () {
