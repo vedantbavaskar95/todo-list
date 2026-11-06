@@ -56,3 +56,15 @@ h1 {
 .completed {
     text-decoration: line-through;
 }
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#taskCounter {
+    font-size: 1rem;
+    color: #666;
+    font-weight: bold;
+}

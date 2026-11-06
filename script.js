@@ -40,6 +40,10 @@ addButton.addEventListener("click", function () {
         {
          saveButton.click();
         }
+        if (event.key === "Escape")
+          {
+             cancelButton.click();
+          }
 });
          
          const saveButton = document.createElement("button");
@@ -50,6 +54,7 @@ addButton.addEventListener("click", function () {
                   cancelButton.textContent = "Cancel";
                   taskToComplete.appendChild(cancelButton);
          saveButton.addEventListener("click", function(event) {
+            event.stopPropagation();
             if(editInput.value.trim() === "")
             {
                return;
