@@ -1,7 +1,11 @@
 const taskInput = document.getElementById("taskInput");
 const addButton = document.getElementById("addTaskButton");
 const displayList = document.getElementById("taskList");
-
+function updateTaskCounter() {
+const count = displayList.children.length;
+                    const label = count === 1 ? "Task" : "Tasks";
+                taskCounter.textContent = `${count} ${label}`;
+}
 addButton.addEventListener("click", function () {
    
    if(taskInput.value.trim() === "")
@@ -20,6 +24,7 @@ addButton.addEventListener("click", function () {
              deleteButton.addEventListener("click",function(event){
               event.stopPropagation();
              taskToComplete.remove();
+                  updateTaskCounter();
       })
 
        const editButton = document.createElement("button");
@@ -82,6 +87,7 @@ addButton.addEventListener("click", function () {
 });
 
        displayList.appendChild(taskToComplete);
+       updateTaskCounter();
        taskInput.value = "";
 });
 
@@ -93,3 +99,6 @@ taskInput.addEventListener("keydown",function(event)
       addButton.click();
    }
 });
+
+
+const taskCounter = document.getElementById("taskCounter");
