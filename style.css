@@ -10,19 +10,25 @@ body {
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    padding: 60px 20px;
+    min-height: 100vh;
 }
 
 .todo-container {
-    width: 400px;
+    width: 700px;
+    max-width: 100%;
     background-color: white;
-    padding: 25px;
-    border-radius: 10px;
+    padding: 40px;
+    border-radius: 14px;
+}
+.todo-header h1 {
+    font-size: 34px;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 400;
 }
 
 .todo-input {
@@ -32,12 +38,12 @@ h1 {
 
 #taskInput {
     flex: 1;
-    padding: 10px;
-    font-size: 16px;
+    padding: 12px;
+    font-size: 17px;
 }
 
 #addTaskButton {
-    padding: 10px 15px;
+    padding: 12px 20px;
     cursor: pointer;
 }
 
@@ -47,8 +53,8 @@ h1 {
 }
 
 #taskList li {
-    padding: 10px;
-    margin-bottom: 8px;
+    padding: 14px;
+    margin-bottom: 10px;
     background-color: #eeeeee;
     border-radius: 5px;
 }
@@ -64,11 +70,29 @@ h1 {
 }
 
 #taskCounter {
-    font-size: 1rem;
+    font-size: 20px;
     color: #666;
     font-weight: bold;
 }
 .todo-header h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
+}
+#taskCounter {
+    font-size: 18px;
+}
+.filter-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #eaeaea;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #333;
+    color: white;
 }

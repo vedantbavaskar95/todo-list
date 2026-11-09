@@ -102,3 +102,36 @@ taskInput.addEventListener("keydown",function(event)
 
 
 const taskCounter = document.getElementById("taskCounter");
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+filterButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+       filterTasks(button.dataset.filter);});
+    });
+    function filterTasks(filter) {
+
+    const tasks = displayList.querySelectorAll("li");
+
+    tasks.forEach(function(task) {
+
+        if (filter === "completed" && !task.classList.contains("completed")) {
+
+            task.style.display = "none";
+
+        }
+        else if (filter === "active" && task.classList.contains("completed")) {
+
+            task.style.display = "none";
+
+        }
+        else {
+
+            task.style.display = "";
+
+        }
+
+    });
+
+}
