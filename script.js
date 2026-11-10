@@ -25,6 +25,7 @@ addButton.addEventListener("click", function () {
               event.stopPropagation();
              taskToComplete.remove();
                   updateTaskCounter();
+                  updateClearCompletedButton();
       })
 
        const editButton = document.createElement("button");
@@ -84,6 +85,7 @@ addButton.addEventListener("click", function () {
     taskToComplete.addEventListener("click", function () {
     console.log("Task clicked");
     taskToComplete.classList.toggle("completed");
+    updateClearCompletedButton();
 });
 
        displayList.appendChild(taskToComplete);
@@ -135,3 +137,29 @@ filterButtons.forEach(function(button) {
     });
 
 }
+
+function clearCompletedTasks() {
+    const completedTasks = displayList.querySelectorAll(".completed");
+
+    completedTasks.forEach(function(task) {
+        task.remove();
+    });
+     updateClearCompletedButton();
+    updateTaskCounter();
+}
+
+const clearCompletedButton = document.getElementById("clearCompletedButton");
+clearCompletedButton.addEventListener("click", function() {
+    clearCompletedTasks();
+});
+
+
+
+
+
+function updateClearCompletedButton() {
+    const completedTasks = displayList.querySelectorAll(".completed");
+    clearCompletedButton.disabled = completedTasks.length === 0;
+}
+    
+    updateClearCompletedButton();
